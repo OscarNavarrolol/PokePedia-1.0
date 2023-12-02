@@ -1,5 +1,6 @@
 
 import com.formdev.flatlaf.intellijthemes.FlatArcOrangeIJTheme;
+import java.awt.Color;
 import java.awt.Image;
 import java.net.*;
 import javax.swing.ImageIcon;
@@ -13,7 +14,7 @@ import javax.swing.BorderFactory;
 
 
 public class PrincipalPoke extends javax.swing.JFrame {
-private int currentPokemonIndex; // el índice por defecto
+private int currentPokemonIndex; // el indice inicial NO TOCAR
 
     public PrincipalPoke() throws MalformedURLException {
         initComponents();
@@ -27,16 +28,61 @@ private int currentPokemonIndex; // el índice por defecto
         
     }
     
+    public Color getColorForType(String type) {
+    switch (type.toLowerCase()) {
+        case "fire":
+            return Color.ORANGE; 
+        case "water":
+            return Color.CYAN; 
+        case "grass":
+            return Color.GREEN.darker().darker(); 
+        case "normal":
+            return new Color(160, 160, 160); 
+        case "flying":
+            return new Color(135, 206, 235); 
+        case "fighting":
+            return new Color(205, 92, 92); 
+        case "poison" :
+            return new Color(138, 43, 226); 
+        case "electric":
+            return Color.YELLOW.darker().darker(); 
+        case "ground":
+            return new Color(139, 69, 19); 
+        case "rock":
+            return new Color(169, 169, 169); 
+        case "psychic":
+            return new Color(186, 85, 211); 
+        case "ice":
+            return new Color(135, 206, 250); 
+        case "bug":
+            return new Color(154, 205, 50); 
+        case "ghost":
+            return new Color(128, 0, 128); 
+        case "steel":
+            return new Color(192, 192, 192); 
+        case "dragon":
+            return new Color(70, 130, 180); 
+        case "dark":
+            return new Color(47, 79, 79); 
+        case "fairy":
+            return new Color(255, 182, 193); 
+        default:
+            return Color.BLACK; // Por defeecto
+    }
+}
+
    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         nameLabel = new javax.swing.JLabel();
         typeLabel = new javax.swing.JLabel();
         btBack = new javax.swing.JButton();
         btNext = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
         imgLabel = new javax.swing.JLabel();
         jPanelLateralder = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
@@ -45,10 +91,25 @@ private int currentPokemonIndex; // el índice por defecto
         jPanel3 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
 
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        nameLabel.setBackground(new java.awt.Color(0, 0, 0));
+        nameLabel.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        nameLabel.setForeground(new java.awt.Color(0, 0, 0));
         nameLabel.setText("jLabel3");
 
+        typeLabel.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         typeLabel.setText("jLabel3");
 
         btBack.setText("back");
@@ -66,27 +127,31 @@ private int currentPokemonIndex; // el índice por defecto
             }
         });
 
+        jPanel5.setLayout(new javax.swing.BoxLayout(jPanel5, javax.swing.BoxLayout.LINE_AXIS));
+
         imgLabel.setText("jLabel3");
+        jPanel5.add(imgLabel);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(309, 309, 309)
                 .addComponent(nameLabel)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addComponent(typeLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(imgLabel)
-                .addGap(277, 277, 277))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(134, 134, 134)
-                .addComponent(btBack, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btNext, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(51, 51, 51)
+                        .addComponent(typeLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(134, 134, 134)
+                        .addComponent(btBack, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btNext, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(132, 132, 132))
         );
         jPanel1Layout.setVerticalGroup(
@@ -94,11 +159,15 @@ private int currentPokemonIndex; // el índice por defecto
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addComponent(nameLabel)
-                .addGap(120, 120, 120)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(typeLabel)
-                    .addComponent(imgLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 258, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(120, 120, 120)
+                        .addComponent(typeLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(120, 120, 120)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btBack, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btNext, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -150,7 +219,7 @@ private int currentPokemonIndex; // el índice por defecto
 
         jPanel3.setBackground(new java.awt.Color(128, 128, 128));
 
-        jButton1.setText("Salir");
+        jButton1.setText("Exit");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -237,7 +306,7 @@ private int currentPokemonIndex; // el índice por defecto
     private void showPokemonInfo(int index) throws MalformedURLException {
     ApiConnector apiConnector = new ApiConnector();
 
-    // Obtener información del Pokémon
+    // Obtener info del Pokemon
     String name = apiConnector.getPokemonName(index);
         List<String> types = apiConnector.getPokemonTypes(index);  
         
@@ -246,21 +315,54 @@ private int currentPokemonIndex; // el índice por defecto
 
 //    String type = apiConnector.getPokemonType(index);
     if (types.size() == 1) {
+        String type = types.get(0);
         typeLabel.setText("Type: " + types.get(0));
+        typeLabel.setForeground(getColorForType(type));    
+        
     } else if (types.size() == 2) {
-        typeLabel.setText("Types: " + types.get(0) + ", " + types.get(1));
+    String type1 = types.get(0);
+    String type2 = types.get(1);
+    typeLabel.setText("Types: " + type1 + ", " + type2);
+
+    
+    Color color1 = getColorForType(type1);
+    Color color2 = getColorForType(type2);
+
+    // Mezcla xdd
+    int red = (color1.getRed() + color2.getRed()) / 2;
+    int green = (color1.getGreen() + color2.getGreen()) / 2;
+    int blue = (color1.getBlue() + color2.getBlue()) / 2;
+
+    // y lo que salga aqui
+    typeLabel.setForeground(new Color(red, green, blue));
+    
     }
     String imageUrl = apiConnector.getPokemonImage(index);
 
-    // Cargar la imagen
-    try {
-        ImageIcon icon = new ImageIcon(new URL(imageUrl));
-        Image scaledImage = icon.getImage();
-        ImageIcon scaledIcon = new ImageIcon(scaledImage);
-        imgLabel.setIcon(scaledIcon);
-    } catch (MalformedURLException e) {
-        e.printStackTrace();
-    }
+    // Cargar la imagen de la manera original el tamaño es predeterminado
+//    try {
+//        ImageIcon icon = new ImageIcon(new URL(imageUrl));
+//        Image scaledImage = icon.getImage();
+//        ImageIcon scaledIcon = new ImageIcon(scaledImage);
+//        imgLabel.setIcon(scaledIcon);
+//    } catch (MalformedURLException e) {
+//        e.printStackTrace();
+//    }
+try {
+    ImageIcon icon = new ImageIcon(new URL(imageUrl));
+    Image image = icon.getImage();
+
+    // Escalando la imagen a un tamaño que se quiera (x2 predeterminado) 
+    int newWidth = image.getWidth(null) * 2; 
+    int newHeight = image.getHeight(null) * 2; 
+    Image scaledImage = image.getScaledInstance(newWidth, newHeight, Image.SCALE_DEFAULT);
+
+    ImageIcon scaledIcon = new ImageIcon(scaledImage);
+    imgLabel.setIcon(scaledIcon);
+} catch (MalformedURLException e) {
+    e.printStackTrace();
+}
+
 }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btBack;
@@ -270,8 +372,10 @@ private int currentPokemonIndex; // el índice por defecto
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanelLateralder;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JLabel typeLabel;
