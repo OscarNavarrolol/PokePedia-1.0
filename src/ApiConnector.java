@@ -152,4 +152,20 @@ public class ApiConnector {
         return result.toString();
     }
     
+    public int getPokemonIndexByName(String name) {
+    int index = -1;
+
+    try {
+        String apiUrl = "https://pokeapi.co/api/v2/pokemon/" + name;
+        String result = fetchData(apiUrl);
+        JSONObject jsonObject = new JSONObject(result);
+        index = jsonObject.getInt("id");
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+
+    return index;
+    }
+    
+    
 }

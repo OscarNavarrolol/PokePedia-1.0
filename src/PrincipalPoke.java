@@ -28,6 +28,30 @@ private int currentPokemonIndex; // el indice inicial NO TOCAR
         
     }
     
+    public void buscarPokemonPorNombre(String nombre) {
+    ApiConnector apiConnector = new ApiConnector();
+    int index = apiConnector.getPokemonIndexByName(nombre);
+        try {
+            if (index != -1) {
+        showPokemonInfo(index);
+        } else {
+                System.out.println("No encontre");   
+            }
+        } catch (Exception e) {
+            System.out.println("No se puedo");
+        }   
+    }
+    
+    public void searchCodePoke (int codePok){
+        int index = codePok;
+        try {
+            showPokemonInfo(index);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+    }
+
     public Color getColorForType(String type) {
     switch (type.toLowerCase()) {
         case "fire":
@@ -85,6 +109,7 @@ private int currentPokemonIndex; // el indice inicial NO TOCAR
         jPanel5 = new javax.swing.JPanel();
         imgLabel = new javax.swing.JLabel();
         jPanelLateralder = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -177,15 +202,28 @@ private int currentPokemonIndex; // el indice inicial NO TOCAR
         jPanelLateralder.setBackground(new java.awt.Color(255, 165, 0));
         jPanelLateralder.setForeground(new java.awt.Color(255, 165, 0));
 
+        jButton2.setText("Search");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelLateralderLayout = new javax.swing.GroupLayout(jPanelLateralder);
         jPanelLateralder.setLayout(jPanelLateralderLayout);
         jPanelLateralderLayout.setHorizontalGroup(
             jPanelLateralderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 170, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelLateralderLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(42, 42, 42))
         );
         jPanelLateralderLayout.setVerticalGroup(
             jPanelLateralderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanelLateralderLayout.createSequentialGroup()
+                .addGap(82, 82, 82)
+                .addComponent(jButton2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel4.setBackground(new java.awt.Color(128, 128, 128));
@@ -231,7 +269,7 @@ private int currentPokemonIndex; // el indice inicial NO TOCAR
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(48, Short.MAX_VALUE)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47))
         );
@@ -253,7 +291,7 @@ private int currentPokemonIndex; // el indice inicial NO TOCAR
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanelLateralder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -303,6 +341,12 @@ private int currentPokemonIndex; // el indice inicial NO TOCAR
             e.printStackTrace();
         }
     }//GEN-LAST:event_btNextActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        SearchPoke search = new SearchPoke(this); // Pasa la instancia actual de PrincipalPoke
+        search.setVisible(true);
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
     private void showPokemonInfo(int index) throws MalformedURLException {
     ApiConnector apiConnector = new ApiConnector();
 
@@ -369,6 +413,7 @@ try {
     private javax.swing.JButton btNext;
     private javax.swing.JLabel imgLabel;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
