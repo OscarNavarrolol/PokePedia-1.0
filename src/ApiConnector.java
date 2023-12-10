@@ -63,6 +63,8 @@ public class ApiConnector {
         return name;
     }
     
+  
+    
 //    public String getPokemonType(int index) {
 //        String apiUrl = "https://pokeapi.co/api/v2/pokemon/" + index;
 //        String type = "";
