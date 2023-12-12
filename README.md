@@ -25,6 +25,7 @@ Pokepedia Barata is a Java application that allows you to explore information ab
 - Explore detailed information about first-generation Pokémon.
 - Navigate through Pokémon using the "Next" and "Back" buttons.
 - Simple and user-friendly interface.
+- In addition to being able to search for a pokemon by its name or code
 
 ## Requirements
 
