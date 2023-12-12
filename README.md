@@ -8,9 +8,17 @@ Pokepedia Barata is a Java application that allows you to explore information ab
 
 [![Starting the app](https://i.postimg.cc/289wGh9B/Screenshot-2.png)](https://postimg.cc/2Vvh8bDz)
 
-[![That's the main window.](https://i.postimg.cc/zf8VRPww/Screenshot-1.png)](https://postimg.cc/Bj7qrpVt)
+[![That's the main window.](https://i.postimg.cc/QC68C9Zx/labur1.png)](https://postimg.cc/RJH5b00j)
 
-[![Other image](https://i.postimg.cc/FK4JVKvL/interfaz2-In.png)](https://postimg.cc/0zVQ8Pbk)
+[![Other image](https://i.postimg.cc/RVDCzHTg/Screenshot-2.png)](https://postimg.cc/YhQB6jZF)
+
+[![Search by name](https://i.postimg.cc/vmRQ4wk9/Screenshot-3.png)](https://postimg.cc/w1VKrZ6T)
+
+[![Pokemon](https://i.postimg.cc/0QWFJpj3/Screenshot-4.png)](https://postimg.cc/WFZXBqM6)
+
+[![Search by code](https://i.postimg.cc/MHn40vjG/Screenshot-5.png)](https://postimg.cc/RJzX4Cdr)
+
+[![Pokemon](https://i.postimg.cc/CM29hHWn/Screenshot-6.png)](https://postimg.cc/Yj1d8g2t)
 
 ## Features
 
